@@ -24,10 +24,11 @@ my Int @vals = gather for $file.lines -> $line {take Int($line)};
 
 # say 0,1, * + * ...  * > 2**31;
 
-my %cnts = 1 => cntIncs(@vals  ),
-           3 => cntIncs(@vals,3);
+my Int %cnts{Int} =
+  1 => cntIncs(@vals  ),
+  3 => cntIncs(@vals,3);
 
-say "total single count is {%cnts<1>}";
-say "total triple count is {%cnts<3>}";
+say "total single count is {%cnts{1}}";
+say "total triple count is {%cnts{3}}";
 
 
